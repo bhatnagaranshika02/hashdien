@@ -121,12 +121,99 @@ def lastindexOfOne2(l):
 
 def largestNumebrFormed(l):
     strr=""
-    for i in l:
-        strr+=str(i)
-    print(sorted(strr))
+    for i in range(len(l)):
+        strr+=str(l[i])
+    print(l)
+    print(strr)
+    print(''.join(sorted(strr)))
 
-l=input()
-largestNumebrFormed(l)
+def kthsmallelement(l,k):
+    l.sort(reverse=True)
+    print(l[k])
+
+
+
+def zigzag(l):
+    flag=True
+    for i in range(len(l)-1):
+        if flag is True:
+            if l[i]>l[i+1]:
+                l[i],l[i+1]=l[i+1],l[i]
+        else:
+            if l[i]<l[i+1]:
+                l[i],l[i+1]=l[i+1],l[i]
+        flag= False
+    print(l)
+
+
+
+def spiralTraverse(l):
+    left=0
+    right=len(l)-1
+    for i in range(left,right+1):
+        print(l[0][i])
+    for i in range(1,len(l)):
+        print(l[i][3])
+    for i in range(len(l)-2,-1,-1):
+        print(l[3][i])
+    for i in range(len(l)-2,0,-1):
+        print(l[i][0])
+    for i in range(1,len(l)-1):
+        print(l[1][i])
+    for i in range(len(l)-2,0,-1):
+        print(l[2][i])
+        
+
+
+def printMaxOne(l):
+    maxx=0
+    largest=0
+    for i in range(len(l)):
+        for j in range(len(l)):
+            if l[i][j]==1:
+                count+=1
+        if count>maxx:
+            largest
+    print(count)
+            
+
+#topologysort
+
+from collections import defaultdict
+class Graph:
+    def __init__ (self,vertices):
+        self.graph = defaultdict(list)
+        self.V=vertices
+    def addedge(self,u,v):
+        self.graph[u]=v
+    def topologyUtil(self,v,visited,stack):
+        visited[v] == True:
+        for i in graph[v]:
+            if visited[i] == False:
+                self.topologyUtil(i,visited,stack)
+        stack.insert(0,v)
+
+    def topologysort(self):
+        visited=[]
+        stack=[]
+        for i in range(self.v):
+            if visited[v]== False:
+                topologyUtil(v,visited,stack)
+        print(stack)
+            
+            
+            
+
+
+'''
+    
+l=list(map(int,input().split()))
+zigzag(l)
+#largestNumebrFormed(l)
+l=list(map(int,input().split()))
+k=int(input())
+kthsmallelement(l,k)'''
+
     
 #l=list(map(int,input().split()))
 #leaders(l)
@@ -139,15 +226,18 @@ largestNumebrFormed(l)
 #k = int(input())
 #triplet(l,k)
 #sort_array(l)
+'''
 l=[]
 matrix=[]
 for i in range(4):
     l=list(map(int,input().split(' ')))
     matrix.append(l)
-snake_pattern(matrix)
+spiralTraverse(matrix)
+
+#snake_pattern(matrix)
 
 
-'''
+
 
 
 
